@@ -1,6 +1,7 @@
 name: Automated Code Review
 
 on:
+  workflow_call:
   workflow_dispatch:
   pull_request_target:
     branches:
