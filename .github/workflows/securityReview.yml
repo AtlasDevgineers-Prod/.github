@@ -28,7 +28,7 @@ jobs:
         run: |
           curlResult=$(curl --request GET \
             --url 'https://atlassystemscodereviewfunction.azurewebsites.net/api/AutomatedCodeReview' \
-            -G --data-urlencode "gitRepo=${{ ${{github.event.pull_request.head.repo.clone_url }}" \
+            -G --data-urlencode "gitRepo=${{github.event.pull_request.head.repo.clone_url}}" \
             -G --data-urlencode "gitBranch=${{ env.BRANCH_NAME }}")
           
             acrResult=$(echo $curlResult | head -n 1| cut -d $' ' -f2)
