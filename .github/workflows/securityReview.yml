@@ -47,7 +47,7 @@ jobs:
             * Suggestions: ${{fromJson(env.ACR_RESULT).suggestionIssueCount}}
             * Manual Security Review: ${{fromJson(env.ACR_RESULT).manualReviewIssueCount}}
 
-            View details at ${{fromJson(env.ACR_RESULT).reportUrl}}
+            View details at https://acrdashboard-dev.azurewebsites.net/report/${{fromJson(env.ACR_RESULT).reportId}}
 
             **Watch for notifications** as we may request some changes to make sure this meets guidelines.
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -59,4 +59,4 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-              core.setFailed('Critical Issues Detected. Details at ${{fromJson(env.ACR_RESULT).reportUrl}}')
+              core.setFailed('Critical Issues Detected. Details at https://acrdashboard-dev.azurewebsites.net/report/${{fromJson(env.ACR_RESULT).reportId}}')
